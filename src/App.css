@@ -19,6 +19,10 @@ button {
 	
 }
 
+.card:hover {
+	background-color: lightgreen;
+}
+
 .chriscross {
 	color: red;
 	font-family: 'Bangers', cursive;
@@ -62,21 +66,24 @@ img {
 .message {
 	color: red;
 	font-family: 'Bangers', cursive;
+	left: 25px;
 	position: relative;
-	text-align: center;
 	top: 100px;
 	transition: transform 1s; 
 
 	}
 
 .sidebar {
-	background-color: yellow;
+	border-bottom: 4px solid black;
+	border-left: 4px solid black;
+	border-top: 4px solid black;
 	bottom: 600px;
 	float: right;
 	height: 500px;
 	margin-right: 10px;
+	padding-left: 10px;
 	position: relative;
-	width: 25%;
+	width: 27%;
 }
 
 .sidecross {
@@ -87,7 +94,12 @@ img {
   
 .top {
 	float: right;
-  }
+	}
+	
+.tryagain {
+	position: relative;
+	top: 150px;
+}
   
 
 

@@ -37,6 +37,9 @@ class App extends Component {
     },
     sidebar: {
       display: "none"
+    },
+    tryagain: {
+      display: "none"
     }
     
   };
@@ -274,6 +277,17 @@ setTimeout(
       characters: pictures,
       unselectedCharacter: pictures
     });
+    setTimeout(
+      function() {
+        this.setState({
+          tryagain: {
+          display: "block"
+          }
+         });
+      }
+      .bind(this),
+      2500
+    );
   };
 
   win = () => {
@@ -287,6 +301,17 @@ setTimeout(
       characters: pictures,
       unselectedCharacter: pictures
     });
+    setTimeout(
+      function() {
+        this.setState({
+          tryagain: {
+          display: "block"
+          }
+         });
+      }
+      .bind(this),
+      2500
+    );
   };
 
 
@@ -298,6 +323,9 @@ setTimeout(
     this.setState({
       messagestyle: {
         transform: "scale(0)"
+      },
+      tryagain: {
+        display: "none"
       }
     });
 
@@ -369,6 +397,7 @@ setTimeout(
           <p className="message" style={this.state.messagestyle}>
           {this.state.message }
           </p>
+          <p className="tryagain" style={this.state.tryagain}>Click On Any Face To Play Again</p>
         </div>
         
       </div>
