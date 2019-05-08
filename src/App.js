@@ -24,8 +24,6 @@ class App extends Component {
     },
     cross: {
       display: "block",
-      left: "850px",
-      position: "relative",
       transform: "none",
       transition: "all 0s ease 0s"
     },
@@ -45,7 +43,7 @@ class App extends Component {
   };
 
   componentDidMount() { 
-   setTimeout(
+  setTimeout(
       function() {
           this.chris();
       }
@@ -152,7 +150,7 @@ setTimeout(
 cross = () => {
     this.setState({
      cross: {
-      left: "850px",
+      left: "70%",
       position: "relative",
       transform: "translate(-70%)",
       transition: "transform 1000ms ease-in-out"
@@ -163,7 +161,7 @@ cross = () => {
       function() {
         this.setState({
           cross: {
-          left: "850px",
+          left: "70%",
           position: "relative",
           transform: "translate(10%)",
           transition: "transform 1000ms ease-in-out"
@@ -178,7 +176,7 @@ cross = () => {
     function() {
       this.setState({
         cross: {
-        left: "850px",
+        left: "70%",
         position: "relative",
         transform: "translate(0px, -400px)",
         transition: "transform 1000ms ease-in-out"
@@ -193,7 +191,7 @@ setTimeout(
   function() {
     this.setState({
       cross: {
-      left: "850px",
+      left: "70%",
       position: "relative",
       transform: "translate(0px, 0px)",
       transition: "transform 1000ms ease-in-out"
@@ -208,7 +206,7 @@ setTimeout(
   function() {
     this.setState({
       cross: {
-      left: "850px",
+      left: "70%",
       position: "relative",
       transform: "translate(-25%)",
       transition: "transform 1000ms ease-in-out"
@@ -222,7 +220,7 @@ setTimeout(
   function() {
     this.setState({
       cross: {
-      left: "850px",
+      left: "70%",
       position: "relative",
       transform: "translate(5%, 250px)",
       transition: "transform 1000ms ease-in-out"
@@ -269,6 +267,12 @@ setTimeout(
       messagestyle: {
         transform: "scale(3.5)"
       },
+      container: {
+        display: "none"
+      },
+      sidebar: {
+        display: "none"
+      },
       topScore:
         this.state.currentScore > this.state.topScore
           ? this.state.currentScore
@@ -288,6 +292,27 @@ setTimeout(
       .bind(this),
       2500
     );
+    setTimeout(
+      function() {
+        this.setState({
+          container: {
+          display: "flex"
+          },
+          sidebar: {
+            display: "block"
+          },
+          messagestyle: {
+            display: "none"
+          },
+          tryagain: {
+            display: "none"
+          }
+         });
+      }
+      .bind(this),
+      3500
+    );
+  
   };
 
   win = () => {
@@ -295,6 +320,12 @@ setTimeout(
       message: "You Win!!",
       messagestyle: {
         transform: "scale(3.5)"
+      },
+      container: {
+        display: "none"
+      },
+      sidebar: {
+        display: "none"
       },
       topScore: 16,
       currentScore: 0,
@@ -311,6 +342,26 @@ setTimeout(
       }
       .bind(this),
       2500
+    );
+    setTimeout(
+      function() {
+        this.setState({
+          container: {
+          display: "flex"
+          },
+          sidebar: {
+            display: "block"
+          },
+          messagestyle: {
+            display: "none"
+          },
+          tryagain: {
+            display: "none"
+          }
+         });
+      }
+      .bind(this),
+      3500
     );
   };
 
@@ -363,7 +414,7 @@ setTimeout(
     return (
       <div>
   
-        <p className="logo" style={this.state.chris}>Chris</p>
+        <p className="chris logo" style={this.state.chris}>Chris</p>
         <p className="logo" style={this.state.cross}>Cross</p>
         <button onClick={this.playgame} style={this.state.play}>Click To Play</button>
        
@@ -381,7 +432,7 @@ setTimeout(
         <div className="sidebar" style={this.state.sidebar}>
         <p className="chriscross">Chris</p>
         <p className="chriscross sidecross">Cross</p>
-        <p>Click on all twelve images of the Chris' before clicking on one twice to win!</p>
+        <p className="rules">Click on all sixteen images of the Chris' without clicking on one twice to win!</p>
         <div className="top">
           <h3>Top Score</h3>
           <h3>
@@ -394,11 +445,12 @@ setTimeout(
           {this.state.currentScore }
           </h3>
           </div>
-          <p className="message" style={this.state.messagestyle}>
+        
+        </div>
+        <p className="message" style={this.state.messagestyle}>
           {this.state.message }
           </p>
-          <p className="tryagain" style={this.state.tryagain}>Click On Any Face To Play Again</p>
-        </div>
+          <p className="tryagain" style={this.state.tryagain}>New Game Starts Now</p>
         
       </div>
     );
